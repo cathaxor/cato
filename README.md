@@ -1,76 +1,38 @@
-# Cato v1.0.0 — Your Expressive Desktop Cat Companion 🐾
+# 🐾 Cato v1.0.1 — Autonomous Desktop Companion
 
-Meet **Cato**, a native, ultra-lightweight desktop cat companion built with C++20, Win32 API, and OpenGL. Cato wanders your desktop, climbs onto your active application windows, takes naps on your title bar, and keeps you company while you work or code!
-
-This first public release provides a completely standalone, portable executable (`Cato.exe`) with **zero external dependencies** and no installation required.
+Meet **Cato**, a lightweight, high-performance pixel-art desktop pet for Windows built natively with **C++20, Win32 API, and OpenGL** hardware acceleration. Cato roams your desktop, perches on your active windows, naps, grooms, and plays right beside you!
 
 ---
 
-### ✨ Highlights & Features
-
-- **🐾 32 Handcrafted Pixel-Art Animation Frames**:
-  - **Authentic 4-Leg Walk**: Coordinated feline diagonal gait (contact, passing, reach, push-off) synchronized with movement speed to eliminate foot-sliding.
-  - **Bounding Sprint / Gallop**: Clear extension (reach) and compression (gather) phases with aerodynamic lean and speed streaks.
-  - **Living Micro-Animations**: Subtle breathing chest expansion, varied natural blinking with occasional double-blinks, smooth sinusoidal tail swaying, ear twitches, and curious gaze shifts.
-  - **Full Jumping Sequence**: Preparation crouch, takeoff leap, airborne fall, landing cushion impact recovery, and stable return.
-  - **Expressive Behaviors**: Rear-leg ear scratching, paw-licking and face-washing grooming, morning yawn stretch, cozy curled sleep, yarn ball batting, window climbing, blissful petting purrs with floating hearts, and scruff dragging.
-
-- **🪟 Smart Window Perching**:
-  - Automatically detects your active application window (VS Code, Browser, Notepad, etc.).
-  - Walks to the window edge, climbs up the border, and perches comfortably on the title bar ledge without teleporting or obstructing your work.
-
-- **🪂 Parachute Jump Action**:
-  - Triggerable anytime from the system tray menu or Settings window.
-  - Features a colorful 4-panel canopy, suspension lines, body harness, and a gentle floating descent to land safely on a window ledge or taskbar.
-
-- **📏 Exact 0 px Taskbar Floor Alignment**:
-  - Dynamic surface-anchoring ensures Cato stands firmly on your Windows taskbar with zero hovering gap across 1x, 2x, 3x, and 4x scales.
-
-- **🐱 6 Cat Breeds**:
-  - Classic Cato Grey Tabby (Slate fur, pure white bib & paws, vibrant sapphire blue eyes)
-  - Ginger Tabby (Warm marmalade orange with emerald green eyes)
-  - Tuxedo (Formal black & white with amber eyes)
-  - Calico (Tri-color patch coat with emerald eyes)
-  - Midnight Black (Velvety dark charcoal with golden eyes)
-  - Siamese (Cream body, dark chocolate points, sapphire eyes)
-
-- **⏱️ Eye-Care Break Timer**:
-  - Follows the optometrist-recommended 20-20-20 rule.
-  - Gently reminds you every 20 minutes to rest your eyes by looking 20 feet away for 20 seconds.
-
-- **⚡ Lightweight & 100% Standalone**:
-  - Native C++20 with statically linked runtime (`/MT`).
-  - Less than 1 MB file size, near-zero CPU usage at idle, and zero external DLL requirements.
+### ✨ What's New in v1.0.1
+- 🐾 **True Autonomous Movement:** Cato now independently explores your desktop floor, pauses for calm idle poses, and strolls naturally without requiring mouse drags.
+- 🧱 **Wall-Aware Navigation:** Cato intelligently turns around when reaching monitor borders instead of walking into screen edges.
+- 🪟 **Natural Window Roaming:** After perching on an active window, Cato comfortably rests and then naturally jumps down to explore the desktop again.
+- 🖱️ **Smooth Drag & Drop:** Pick up Cato and drop him anywhere—he cushions his landing and immediately resumes his autonomous routine.
+- ⚡ **Lightweight & Efficient:** Ultra-low resource usage (<15 MB RAM, ~0% idle CPU).
 
 ---
 
-### 🚀 Quick Start (How to Run)
+### 🚀 How to Run
 
-1. Download **`Cato.exe`** (or **`Cato-v1.0.0-Portable-x64.zip`**) below.
-2. Double-click **`Cato.exe`** to launch immediately. No setup or admin privileges required!
-3. **Controls**:
-   - **Right-Click Cato or Tray Icon**: Open context menu to access Settings, Behaviors, Parachute Jump, or Exit.
-   - **Left-Click & Drag**: Pick up Cato by the scruff to place it anywhere on your desktop.
-   - **Mouse Hover**: Pet Cato to make it purr!
-   - **Double-Click**: Open the Settings GUI.
+#### Option 1: Portable (Zero Installation — Recommended)
+1. Download **`Cato-Portable-x64.zip`** (or standalone **`Cato.exe`**).
+2. Extract anywhere and double-click **`Cato.exe`** to play!
 
----
-
-### 📦 Checksums & Verification
-
-| File | Size | SHA-256 Checksum |
-| :--- | :--- | :--- |
-| **`Cato.exe`** | 930 KB | `13D42B9379F9C96DB3510B187322DDF2319FFF1CFBE3C50F309878AF70A2E474` |
-| **`Cato-v1.0.0-Portable-x64.zip`** | 450 KB | `39AB3625C9953E7872096251C2FD5D9DFEF6FB40CEFD2F4F1E7877952B0D5E56` |
+#### Option 2: Windows Installer
+1. Download and run **`Cato-Setup.exe`**.
+2. Follow the setup wizard to install with Start Menu shortcut support.
 
 ---
 
-### 💻 System Requirements
+### 🔒 SHA-256 Checksums
 
-- **Operating System**: Windows 10 or Windows 11 (64-bit)
-- **Graphics**: Any GPU supporting OpenGL 2.0+
-- **Architecture**: x86-64
+| File | SHA-256 Checksum |
+| :--- | :--- |
+| **`Cato-Portable-x64.zip`** | `0894e1cccbf55c50fb5f182013286a43f857e97469c6a96e908a00c11673ea52` |
+| **`Cato.exe`** | `6b36e4262727a65a8cd41d457f32a3a4a9f41d509c302e6586033a63e184b6b8` |
+| **`Cato-Setup.exe`** | `a931a29d464f89c9abaa3a5da8609032de4307bb26ae9cdeeab53ef247d892b1` |
 
 ---
-
-**Developed with ❤️ by Abdur Rahaman Abdulla ([@CatHaxor](https://github.com/CatHaxor))**
+**Developer:** Abdur Rahaman Abdulla ([@cathaxor](https://github.com/cathaxor))  
+*Play & be happy :)*
