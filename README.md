@@ -12,7 +12,7 @@
 
 #### 1. Lifelike Cursor Trailing & Organic Locomotion
 - **Motion-Vector Wake Trailing**: Instead of snapping onto the cursor tip, Cato now trails naturally behind in the motion vector wake of your cursor (`desiredTrail = cursorPos - normCursorVelocity * trailDistance`). Clicks and desktop interaction remain 100% unimpeded via `HTTRANSPARENT`.
-- **Dynamic Feline Gait Switching ("Aste Aste Haita" vs "Douray")**:
+- **Dynamic Feline Gait Switching **:
   - **Gentle Walking (`AnimState::Walk`)**: Relaxed 4-frame alternate foot pacing (1.8 to 4.2 px/frame) when following closely (`dist <= 95px`) or during subtle pointer movements.
   - **Agile Sprinting (`AnimState::Run`)**: High-energy sprint (up to 26 px/frame) with speed streaks when the cursor dashes across screens or multi-monitor setups.
 - **Organic Newtonian Steering**: Replaced linear translation with smooth velocity steering curves (`accelRate = 0.18f / 0.26f`). Cato takes natural, rounded turns with realistic inertia and momentum rather than sharp polygonal corners.
