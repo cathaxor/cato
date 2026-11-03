@@ -1,66 +1,75 @@
-# Cato — Desktop Cat Companion (v1.0.2 Release Notes)
+﻿# CATO v1.2.1 THE LIVING DESKTOP COMPANION
 
-**Release Version:** `v1.0.2`  
-**Release Date:** October 30, 2026  
-**Developer:** Abdur Rahaman Abdulla (CatHaxor)  
-**Repository:** [https://github.com/cathaxor/cato](https://github.com/cathaxor/cato)  
-**Target Platform:** Windows 10 / 11 (x64)  
-**Architecture:** Native C++20, Win32 API, OpenGL Hardware-Accelerated  
-
----
-
-## 🌟 Overview & Highlights
-
-Cato `v1.0.2` delivers a complete **Functionality Restoration, Behavior Engine Integration, and Release Polish** update.
-
-Every setting on the Behavior, Appearance, and Sounds pages is now fully wired from the UI to the underlying companion engine and persisted across sessions. Cato autonomously strolls the desktop floor, respects user-configured roaming and jump frequencies, synchronizes leg animation rates to movement speed multipliers, responds instantly to personality mode changes, and features a functional parachute jump.
+### Release Overview
+- **Version**: 1.2.1 (Official Stable Release)
+- **Developer**: Abdur Rahaman Abdulla (CatHaxor)
+- **Target OS**: Windows 10 / 11 (x64)
+- **Architecture**: Native C++20, Win32 API, OpenGL, Hardware Accelerated
 
 ---
 
-## 🔧 Key Improvements & Restorations in v1.0.2
+### New Features & Critical Fixes
 
-### 1. Behavior Settings Pipeline Fully Connected
-- **Movement Speed Multiplier:** Added `0.7x (Slow)`, `1.0x (Normal)`, `1.5x (Brisk)`, and `2.0x (Turbo)`. Adjusts horizontal walking velocity (`1.05 px/frame` to `3.0 px/frame`) as well as running and climbing velocities.
-- **Animation Gait Synchronization:** Scaled sprite walk step rates (`CatSpriteGenerator::generateFrame`) inversely with movement speed so Cato's legs cycle faster at higher speeds, preventing foot-sliding.
-- **Autonomous Roaming Frequency:** Added `Rare (0.5x)`, `Normal (1.0x)`, and `Frequent (2.0x)`. Dynamically scales autonomous walk probabilities (22% up to 75%) and idle pause durations.
-- **Jump Frequency:** Added `Cautious (0.5x)`, `Normal (1.0x)`, and `Acrobatic (2.0x)`. Adjusts autonomous leap probability from 1% up to 28% in Playful mode.
-- **Instant Personality Switching:** Changing mode to **Sleeping** instantly curls Cato into peaceful sleep with zero roaming; switching to **Playful** prompts immediate energetic activity without delayed transitions.
-- **Surface Movement Modes:**
-  - *Desktop Only:* Stays strictly on the taskbar floor; immediately leaves any window if currently perched.
-  - *Window Sitting:* Climbs and tracks active windows without automatic dismount.
-  - *Roam Everywhere:* Roams the entire desktop floor, visits windows, and dismounts after 15–20 seconds with cooldown.
+1. **Window Perching, Stable Climbing & Anti-Drop Fix**
+   - Eliminated sudden resets and drop bugs while Cato climbs up or sits on application windows.
+   - Guarded climbing state machine so activating or clicking background windows never cancels the climb or plummets Cato to the floor.
+   - Stable perched lounging on window title bars that naturally tracks window moving, resizing, and maximizing.
 
-### 2. Parachute Jump Action
-- Triggering Parachute Jump (via Settings or Context Menu) launches Cato high into the air and gracefully deploys an animated parachute to float back down to the taskbar floor. Fixed state management to allow smooth repeated activations.
+2. **Absolute Always-On-Top Visibility Guarantee**
+   - Cato, the speech bubble, and desktop toys remain visibly on top across all open applications.
+   - Immediate re-assertion of HWND_TOPMOST upon any window activation or creation ensures Cato is never buried or obscured.
 
-### 3. Opacity & Rendering Controls
-- Connected window opacity settings (`20%` to `100%`) directly to `UpdateLayeredWindow` via `BLENDFUNCTION.SourceConstantAlpha`.
-- Connected animation quality settings: `Retro (30 FPS)` sets timer to 33 ms, while `High (60 FPS)` runs at silky-smooth 16 ms.
+3. **Complete Update Center Overhaul**
+   - GitHub Releases API integration gracefully handles up-to-date states and release discovery.
+   - Live animated download progress bar with responsive 120ms UI refresh timer.
+   - Direct Inno Setup executable updater support (Cato-Setup.exe / Cato.exe).
+   - All update preferences (automatic check, notification, auto-download, auto-install) fully configurable from UI and System Tray.
 
-### 4. Settings Persistence & Migration
-- Standardized configuration format on `%APPDATA%\Cato\settings.json` with fallback migration from legacy `config.json`.
-- Safely handles both string representation and numerical values for breeds and modes.
+4. **Instant Cursor Sprint & Playful Chase Overhaul**
+   - Eliminated activity lockups during cursor chasing: stationary activities (Scratch, Groom, Sit, Idle, Sleep) are immediately cancelled when the cursor moves away.
+   - Dynamic distance-scaled sprint speed up to 810 px/s (13.5 px/frame in Playful Chase) for instant responsiveness.
+   - Excited aerial leaps: when the user dangles the cursor above Cato, Cato leaps upward enthusiastically.
+   - Smooth ledge disengagement when cursor is lured across the screen.
+
+2. **Window Perching & Z-Order Fix**
+   - Clicking background apps or interacting with the active window no longer causes Cato to fall off the window ledge or sink underneath.
+   - Dynamic HWND_TOPMOST maintenance keeps Cato stably positioned on the title bar and visible over foreground applications.
+
+3. **Full Multi-Monitor & Dual-Monitor Support**
+   - Seamless cross-monitor roaming across the entire desktop virtual canvas (SM_XVIRTUALSCREEN, SM_CXVIRTUALSCREEN).
+   - Dynamic floor positioning (getDesktopFloorAt) anchors Cato smoothly to each display's work area taskbar without hitting artificial boundary walls or bouncing.
+
+4. **Bidirectional System Tray & GUI Synchronization**
+   - Every toggle, mode selector, cursor tracking option, and toy action altered via the System Tray context menu instantly synchronizes with the Settings Window GUI in real time.
+
+5. **Modern Glass & Acrylic Settings Interface**
+   - Frosted obsidian glass aesthetic with translucent cards, 1px specular reflection top rim, and glowing interactive hover states.
+   - Native Windows 11 Acrylic / Mica backdrop support via Desktop Window Manager (DWMWA_SYSTEMBACKDROP_TYPE).
+   - Refined segmented toggles, pill switches, and smooth typography.
+
+6. **Emotion & Expression System**
+   - Centralized EmotionController with 7 reactive emotional states:
+     - Happy (floating hearts purring, petting)
+     - Curious (question mark observing nearby cursor and toys)
+     - Sleepy (gentle Zzz micro-breathing, late night hours)
+     - Excited (sparkles, chasing toys, high-energy leaps)
+     - Annoyed (anger marks rapid dragging)
+     - Relaxed (musical notes baseline contentment)
+     - Surprised (exclamation, parachute deployment, sudden changes)
+   - Intensity levels: Subtle, Normal, and Expressive.
+   - Automatic natural mood transitions with decay and cooldown guards.
+
+7. **Desktop Toy Interaction & Custom Skins**
+   - 4 Physical Desktop Toys: Yarn Ball, Red Ball, Feather Wand, and Laser Dot.
+   - Dedicated layered toy window with floor gravity, bounce damping, and momentum throws.
+   - Custom skins loader with high-performance WIC PNG decoding from %APPDATA%\Cato\skins\.
+
+8. **Day & Night Diurnal Cycle**
+   - Synchronized with local system clock with customizable day/night hours and subtle nocturnal visual effects.
 
 ---
 
-## 📦 Release Deliverables & Checksums
-
-| File | Type | Size | SHA-256 Checksum |
-| :--- | :--- | :--- | :--- |
-| **`Cato.exe`** | Standalone Executable (x64) | 935,424 bytes | `20232e7d1846f503fa03c1db417f9400d43176bb423c7296133fc77b8075daad` |
-| **`Cato-Portable-x64.zip`** | Portable Archive (`Cato.exe` + `README.txt`) | 451,777 bytes | `a784ca82d986d44183db3bd91b516ee6e65023acfb6b80d73d273d762eefd948` |
-| **`Cato-Setup.exe`** | Windows Inno Setup Installer | 2,900,050 bytes | `137500c0ba731be796b9adb0ac3f138fb3623481d3470fb0e10c905330be370f` |
-
----
-
-## 🚀 Quick Start Guide
-
-### Standalone Executable (`Cato.exe`)
-1. Download `Cato.exe` and place it anywhere (e.g. Desktop or Downloads).
-2. Double-click `Cato.exe` to run. No installer or administrator permissions required!
-3. Right-click Cato or the tray icon to customize settings or exit.
-
-### Windows Installer (`Cato-Setup.exe`)
-1. Download and run `Cato-Setup.exe`.
-2. Follow the modern setup wizard. It installs cleanly into `%LOCALAPPDATA%\Programs\Cato` without requiring admin rights.
-3. Creates convenient Start Menu and Desktop shortcuts with clean uninstaller support.
+### Improvements & Stability
+- Completely eliminated foot sliding and unnatural pause interruptions.
+- Zero CPU overhead rendering pipeline via OpenGL 32-bit alpha layered window.
+- Verified binary compatibility across Windows 10 and Windows 11.
