@@ -10,7 +10,7 @@
 
 ### 🌟 What's New in v1.2.2
 
-#### 1. Lifelike Cursor Trailing & Organic Locomotion ("Picone Picone Asbe")
+#### 1. Lifelike Cursor Trailing & Organic Locomotion
 - **Motion-Vector Wake Trailing**: Instead of snapping onto the cursor tip, Cato now trails naturally behind in the motion vector wake of your cursor (`desiredTrail = cursorPos - normCursorVelocity * trailDistance`). Clicks and desktop interaction remain 100% unimpeded via `HTTRANSPARENT`.
 - **Dynamic Feline Gait Switching ("Aste Aste Haita" vs "Douray")**:
   - **Gentle Walking (`AnimState::Walk`)**: Relaxed 4-frame alternate foot pacing (1.8 to 4.2 px/frame) when following closely (`dist <= 95px`) or during subtle pointer movements.
